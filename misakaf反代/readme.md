@@ -100,14 +100,14 @@ server {
 
     location / {
         # 反向代理的 emby 服务器域名
-        proxy_pass https://emby.aca.best;
+        proxy_pass https://aca.misakaf.org;
         # 反代的 emby 推流地址
         proxy_redirect https://stream1.misakaf.org/ https://emby.qq.com/s1/;
         proxy_redirect https://stream2.misakaf.org/ https://emby.qq.com/s2/;
         proxy_redirect https://stream3.misakaf.org/ https://emby.qq.com/s3/;
         proxy_redirect https://stream4.misakaf.org/ https://emby.qq.com/s4/;
         # 反代 emby 服务器主页
-        proxy_set_header Referer "https://emby.aca.best/web/index.html"; 
+        proxy_set_header Referer "https://aca.misakaf.org/web/index.html"; 
         proxy_set_header Upgrade $http_upgrade; 
         proxy_set_header Connection $connection_upgrade;
         proxy_set_header Host $proxy_host; 
@@ -118,7 +118,7 @@ server {
     location /s1 {
         rewrite ^/s1(/.*)$ $1 break;
         proxy_pass https://stream1.misakaf.org/;
-        proxy_set_header Referer "https://emby.aca.best/web/index.html";
+        proxy_set_header Referer "https://aca.misakaf.org/web/index.html";
         proxy_set_header Host $proxy_host;
         proxy_ssl_server_name on;
         proxy_buffering off;
@@ -127,7 +127,7 @@ server {
     location /s2 {
         rewrite ^/s2(/.*)$ $1 break;
         proxy_pass https://stream2.misakaf.org/;
-        proxy_set_header Referer "https://emby.aca.best/web/index.html";
+        proxy_set_header Referer "https://aca.misakaf.org/web/index.html";
         proxy_set_header Host $proxy_host;
         proxy_ssl_server_name on;
         proxy_buffering off;
@@ -136,7 +136,7 @@ server {
     location /s3 {
         rewrite ^/s3(/.*)$ $1 break;
         proxy_pass https://stream3.misakaf.org/;
-        proxy_set_header Referer "https://emby.aca.best/web/index.html";
+        proxy_set_header Referer "https://aca.misakaf.org/web/index.html";
         proxy_set_header Host $proxy_host;
         proxy_ssl_server_name on;
         proxy_buffering off;
@@ -145,7 +145,7 @@ server {
     location /s4 {
         rewrite ^/s4(/.*)$ $1 break;
         proxy_pass https://stream4.misakaf.org/;
-        proxy_set_header Referer "https://emby.aca.best/web/index.html";
+        proxy_set_header Referer "https://aca.misakaf.org/web/index.html";
         proxy_set_header Host $proxy_host;
         proxy_ssl_server_name on;
         proxy_buffering off;
