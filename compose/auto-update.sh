@@ -20,7 +20,7 @@ echo "docker-compose-update.sh script created and made executable."
 
 # 4. 添加别名到~/.bashrc
 echo "Setting up alias for docker-compose-update..."
-echo "alias 'docker compose update'='$(pwd)/docker-compose-update.sh'" >> ~/.bashrc
+echo "alias docker-auto-update='$(pwd)/docker-compose-update.sh'" >> ~/.bashrc
 
 # 5. 使更改生效
 source ~/.bashrc
