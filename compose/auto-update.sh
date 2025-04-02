@@ -9,8 +9,8 @@ echo "Creating docker-auto-update.sh script..."
 cat > "$SCRIPT_PATH" <<'EOL'
 #!/bin/bash
 # docker compose一键更新脚本
-# 通过输入 docker-auto-update 实现一键更新
-# 执行 docker compose down, pull 和 up
+# 通过输入docker-auto-update实现一键更新
+# 执行docker compose down, pull 和 up
 docker compose down && docker compose pull && docker compose up -d
 EOL
 
@@ -18,13 +18,19 @@ EOL
 chmod +x "$SCRIPT_PATH"
 echo "docker-auto-update.sh script created and made executable."
 
-# 4. 确保脚本路径正确，并添加 alias 到 ~/.bashrc
-ABSOLUTE_PATH="$(pwd)/docker-auto-update.sh"
+# 4. 添加别名到~/.bashrc (检查是否已存在)
 echo "Setting up alias for docker-auto-update..."
-echo "alias docker-auto-update='$ABSOLUTE_PATH'" >> ~/.bashrc
+FULL_PATH="$(pwd)/docker-auto-update.sh"
+ALIAS_LINE="alias docker-auto-update='$FULL_PATH'"
 
-# 5. 使更改生效
-source ~/.bashrc
-echo "Alias added to ~/.bashrc."
+# 检查别名是否已存在
+if grep -q "alias docker-auto-update=" ~/.bashrc; then
+    echo "Alias already exists in ~/.bashrc. Skipping."
+else
+    echo "$ALIAS_LINE" >> ~/.bashrc
+    echo "Alias added to ~/.bashrc."
+fi
 
-echo "Setup complete! Now you can use the 'docker-auto-update' command to update your Docker Compose setup."
+# 5. 提示用户手动使更改生效
+echo "Setup complete! To activate the alias, please run: source ~/.bashrc"
+echo "After that, you can use the 'docker-auto-update' command to update your Docker Compose setup."
