@@ -1,3 +1,8 @@
+# 使用以下命令运行代码
+# bash <(curl -s https://raw.githubusercontent.com/wolfydw/ziyong/refs/heads/main/compose/auto-update.sh)
+# 作者：wolfydw
+# 最后更新时间：2025-04-02
+
 #!/bin/bash
 
 # 1. 设置Docker Compose更新脚本路径为当前目录
