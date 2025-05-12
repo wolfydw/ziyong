@@ -1,23 +1,3 @@
-## 简介
-这是一个自动化服务器备份工具，可以将指定目录的数据备份到远程服务器，并通过Telegram发送备份状态通知。
-
-## 功能特点
-- 支持多目录备份
-- 安全的远程传输
-- 备份完成后通过Telegram通知
-- 简单易用的配置方式
-
-# 说明
-- backup.sh # 主脚本
-- env.conf #
-
-## 贡献
-欢迎提交Issue和Pull Request来改进这个工具。
-
-## 许可证
-MIT
-
-
 # 自动备份工具
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
