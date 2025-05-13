@@ -54,44 +54,14 @@ chmod +x backup.sh
 5. 设置定时任务（每天凌晨3点执行）：
 
 ```bash
-
+crontab -e
+0 3 * * * /root/backup/backup.sh
 ```
 
 ### 手动执行备份
 
 ```bash
 ./backup.sh
-```
-
-## 配置文件说明
-
-### env.conf
-
-```
-# 服务器A的配置
-SERVER_IP=192.168.1.100
-SERVER_PORT=22
-SERVER_PASSWORD=your_password_here
-
-# 备份配置 - 用空格分隔多个路径
-BACKUP_DIR="/path/to/dir1 /path/to/dir2 /path/to/file1.txt"
-REMOTE_BACKUP_DIR=/home/backup
-
-# Telegram通知配置（可选）
-TG_BOT_TOKEN=your_telegram_bot_token
-TG_USER_ID=your_telegram_user_id
-```
-
-### exclude.list
-
-```
-# 以下文件和目录将被排除在备份之外
-*.log
-*.tmp
-.git
-node_modules
-cache
-tmp
 ```
 
 ## Telegram通知
@@ -102,7 +72,6 @@ tmp
 - 备份时间
 - 备份文件大小
 - 备份存储位置
-- 备份耗时
 - 错误原因（如失败）
 
 要启用此功能，请在`env.conf`中配置有效的Telegram Bot Token和User ID。
