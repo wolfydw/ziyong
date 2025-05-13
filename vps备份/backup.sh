@@ -29,9 +29,9 @@ send_telegram() {
     local message=""
     
     if [ "$status" = "success" ]; then
-        message=" *备份成功通知* %0A%0A备份主机：${LABLE}%0A备份时间：$current_date%0A备份内容：$BACKUP_DIR%0A文件大小：$BACKUP_SIZE%0A储存位置：$SERVER_IP:$REMOTE_BACKUP_DIR/"
+        message=" *备份成功通知* %0A%0A备份主机：${LABEL}%0A备份时间：$current_date%0A备份内容：$BACKUP_DIR%0A文件大小：$BACKUP_SIZE%0A储存位置：$SERVER_IP:$REMOTE_BACKUP_DIR"
     else
-        message=" *备份失败通知* %0A%0A${LABLE}备份失败！"
+        message=" *备份失败通知* %0A%0A${LABEL}备份失败！"
         if [ -n "$reason" ]; then
             message+="%0A原因：$reason"
         fi
