@@ -99,7 +99,7 @@ if [ -z "$BACKUP_DIR" ]; then
 fi
 
 # 如果REMOTE_BACKUP_DIR未设置，使用默认值
-REMOTE_BACKUP_DIR=${REMOTE_BACKUP_DIR:-"/root/backup"}
+REMOTE_BACKUP_DIR=${REMOTE_BACKUP_DIR:-"/root/backup/${LABEL}"}
 
 # 创建备份文件名和临时目录
 current_date=$(date +'%Y%m%d_%H%M%S')
